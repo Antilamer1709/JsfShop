@@ -16,21 +16,4 @@ import javax.servlet.http.HttpServletRequest;
 @ELBeanName(value = "loginController")
 @Join(path = "/login", to = "/view/login.jsf")
 public class LoginController {
-    private UserEntity user = new UserEntity();
-
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public String login() {
-        FacesContext context = FacesContext.getCurrentInstance();
-        HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
-        try {
-            request.login(this.user.getUsername(), this.user.getPassword());
-        } catch (ServletException e) {
-            context.addMessage(null, new FacesMessage("Login failed."));
-            return "error";
-        }
-        return "/";
-    }
 }

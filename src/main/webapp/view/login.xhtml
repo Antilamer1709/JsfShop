@@ -11,10 +11,10 @@
             <p:panel header="Login">
                 <h:panelGrid columns="1">
                     <p:outputLabel for="username" value="Username: " />
-                    <p:inputText id="username" name="username" value="#{loginController.user.username}" />
+                    <p:inputText id="username" name="username" value="#{loginBean.user.username}" />
                     <p:outputLabel for="password" value="Password: " />
-                    <p:inputText type="password" name="password" id="password" value="#{loginController.user.password}" />
-                    <h:commandButton value="login" type="submit" action="#{loginController.login}" />
+                    <p:inputText type="password" name="password" id="password" value="#{loginBean.user.password}" />
+                    <h:commandButton value="login" type="submit" action="#{loginBean.login}" />
                 </h:panelGrid>
             </p:panel>
         </h:form>

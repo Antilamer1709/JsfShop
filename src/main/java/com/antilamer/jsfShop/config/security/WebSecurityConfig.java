@@ -32,6 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login").failureUrl("/login?error=true")
+                .loginProcessingUrl("/appLogin")
                 .defaultSuccessUrl("/")
                 .usernameParameter("username").passwordParameter("password")
                 .permitAll()
@@ -42,12 +43,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication()
-                .usersByUsernameQuery("select username,password, enabled from users where username=?")
-                .authoritiesByUsernameQuery("select username, role from user_roles where username=?")
-                .dataSource(dataSource);
-//                .passwordEncoder(bCryptPasswordEncoder);
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.jdbcAuthentication()
+//                .usersByUsernameQuery("select username,password from users where username=?")
+////                .authoritiesByUsernameQuery("select username, role from user_roles where username=?")
+//                .dataSource(dataSource);
+////                .passwordEncoder(bCryptPasswordEncoder);
+//    }
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .inMemoryAuthentication()
+                .withUser("a").password("a").roles("USER");
     }
 }
