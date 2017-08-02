@@ -1,6 +1,6 @@
 package com.antilamer.jsfShop.controller;
 
-import com.antilamer.jsfShop.entity.Product;
+import com.antilamer.jsfShop.entity.ProductEntity;
 import com.antilamer.jsfShop.repo.ProductRepo;
 import org.ocpsoft.rewrite.annotation.Join;
 import org.ocpsoft.rewrite.el.ELBeanName;
@@ -16,15 +16,15 @@ public class ProductController {
     @Autowired
     private ProductRepo productRepo;
 
-    private Product product = new Product();
+    private ProductEntity product = new ProductEntity();
 
     public String save() {
         productRepo.save(product);
-        product = new Product();
+        product = new ProductEntity();
         return "/product-list.xhtml?faces-redirect=true";
     }
 
-    public Product getProduct() {
+    public ProductEntity getProduct() {
         return product;
     }
 }

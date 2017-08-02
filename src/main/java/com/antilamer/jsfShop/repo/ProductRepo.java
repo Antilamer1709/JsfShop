@@ -1,7 +1,7 @@
 package com.antilamer.jsfShop.repo;
 
-import com.antilamer.jsfShop.entity.Product;
+import com.antilamer.jsfShop.entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepo extends JpaRepository<Product, Integer> {
+public interface ProductRepo extends JpaRepository<ProductEntity, Integer> {
 }

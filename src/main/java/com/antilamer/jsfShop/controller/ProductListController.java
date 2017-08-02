@@ -1,6 +1,6 @@
 package com.antilamer.jsfShop.controller;
 
-import com.antilamer.jsfShop.entity.Product;
+import com.antilamer.jsfShop.entity.ProductEntity;
 import com.antilamer.jsfShop.repo.ProductRepo;
 import org.ocpsoft.rewrite.annotation.Join;
 import org.ocpsoft.rewrite.annotation.RequestAction;
@@ -20,7 +20,7 @@ public class ProductListController {
     @Autowired
     private ProductRepo productRepo;
 
-    private List<Product> products;
+    private List<ProductEntity> products;
 
     @Deferred
     @RequestAction
@@ -29,7 +29,7 @@ public class ProductListController {
         products = productRepo.findAll();
     }
 
-    public List<Product> getProducts() {
+    public List<ProductEntity> getProducts() {
         return products;
     }
 }
