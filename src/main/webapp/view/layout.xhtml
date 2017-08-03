@@ -9,22 +9,24 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Product</title>
+        <h:outputStylesheet name="style.css" />
+        <h:outputStylesheet library="primefaces-bootstrap" name="theme.css" />
+        <title>JSF Shop</title>
     </h:head>
     <h:body>
-        <div class="ui-g">
-            <div class="ui-g-12">
-                <p:toolbar>
+        <!--<div class="ui-g">-->
+            <!--<div class="ui-g-12">-->
+                <p:toolbar styleClass="pToolbar">
                     <f:facet name="left">
                         <p:button href="/" value="List of Products" />
                         <p:button href="/product" value="New Product" />
                     </f:facet>
                 </p:toolbar>
-            </div>
+            <!--</div>-->
             <div class="ui-g-12">
                 <ui:insert name="content" />
             </div>
-        </div>
+        <!--</div>-->
     </h:body>
 </f:view>
 </html>
