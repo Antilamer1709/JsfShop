@@ -11,14 +11,18 @@
             <p:panel header="Login">
                 <h:panelGrid columns="1">
                     <form name="loginForm" method="POST" action="login">
-                        <p>
-                            <strong>Please type your user name: </strong>
-                            <input type="text" name="username" size="25"/></p>
-                        <p><strong>Please type your password: </strong>
-                            <input type="password" size="15" name="password"/></p>
-                        <p>
+                        <div>
+                            <label for="username">Please type your user name: </label>
+                            <input type="text" name="username" id="username"/>
+                        </div>
+                        <div>
+                            <label for="password">Please type your password: </label>
+                            <input type="password" size="15" name="password" id="password"/>
+                        </div>
+                        <div>
                             <input type="submit" value="Submit"/>
-                            <input type="reset" value="Reset"/></p>
+                            <input type="reset" value="Reset"/>
+                        </div>
                     </form>
                 </h:panelGrid>
             </p:panel>
