@@ -19,6 +19,9 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
     @Value("${spring.datasource.password}")
     private String dataBasePassword;
 
+    @Value("${spring.jpa.properties.hibernate.default_schema}")
+    private String dataBaseSchema;
+
     @Bean(name = "dataSource")
     public DriverManagerDataSource dataSource() {
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
@@ -26,6 +29,7 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
         driverManagerDataSource.setUrl(dataBaseURL);
         driverManagerDataSource.setUsername(dataBaseUsername);
         driverManagerDataSource.setPassword(dataBasePassword);
+        driverManagerDataSource.setSchema(dataBaseSchema);
         return driverManagerDataSource;
     }
 

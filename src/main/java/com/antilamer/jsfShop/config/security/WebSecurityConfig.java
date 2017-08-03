@@ -42,26 +42,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
     }
 
-    //    @Autowired
-//    public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication()
-//                .usersByUsernameQuery("select username,password from users where username=?")
-////                .authoritiesByUsernameQuery("select username, role from user_roles where username=?")
-//                .dataSource(dataSource);
-////                .passwordEncoder(bCryptPasswordEncoder);
-//    }
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("a").password("a").roles("USER");
+        auth.jdbcAuthentication()
+                .dataSource(dataSource)
+                .usersByUsernameQuery("SELECT username, password, enabled FROM users WHERE username=?")
+                .authoritiesByUsernameQuery("SELECT username, role FROM users WHERE username=?");
+//                .passwordEncoder(bCryptPasswordEncoder);
     }
-
-
-//    @Autowired
-//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.jdbcAuthentication()
-//                .usersByUsernameQuery("select username,password from users where username=?")
-//                .dataSource(dataSource);
-//    }
 }
