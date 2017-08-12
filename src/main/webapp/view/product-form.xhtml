@@ -13,7 +13,7 @@
                     <p:inputText id="name" value="#{productController.product.name}" />
                     <p:outputLabel for="price" value="Price: " />
                     <p:inputNumber id="price" value="#{productController.product.price}" />
-                    <h:commandButton value="Save" action="#{productController.save}" />
+                    <p:commandButton value="Save" actionListener="#{productController.save}" />
                 </h:panelGrid>
             </p:panel>
         </h:form>

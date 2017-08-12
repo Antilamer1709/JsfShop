@@ -3,5 +3,16 @@ body{
 }
 
 .pToolbar{
-    width: 100%;
+    border-radius: 0 !important;
+}
+
+.productImage{
+    width: 700px;
+    padding-left: 100px;
+}
+
+.productDescription{
+    float: left;
+    margin-left: 100px;
+    margin-top: 100px;
 }
