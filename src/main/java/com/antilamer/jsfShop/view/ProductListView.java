@@ -1,7 +1,8 @@
-package com.antilamer.jsfShop.bean;
+package com.antilamer.jsfShop.view;
 
 import com.antilamer.jsfShop.entity.ProductEntity;
 import com.antilamer.jsfShop.service.ProductService;
+import org.ocpsoft.rewrite.annotation.Join;
 
 import java.io.Serializable;
 import java.util.List;
@@ -12,7 +13,8 @@ import javax.faces.bean.RequestScoped;
 
 @ManagedBean
 @RequestScoped
-public class ProductListBean implements Serializable {
+@Join(path = "/", to = "/view/product-list.jsf")
+public class ProductListView implements Serializable {
     private List<ProductEntity> products;
 
     @ManagedProperty("#{productService}")

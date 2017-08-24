@@ -1,18 +1,21 @@
-package com.antilamer.jsfShop.controller;
+package com.antilamer.jsfShop.view;
 
 import com.antilamer.jsfShop.entity.ProductEntity;
 import com.antilamer.jsfShop.repo.ProductRepo;
 import org.ocpsoft.rewrite.annotation.Join;
-import org.ocpsoft.rewrite.el.ELBeanName;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Scope(value = "session")
-@Component(value = "productController")
-@ELBeanName(value = "productController")
-@Join(path = "/product", to = "/view/product-form.jsf")
-public class ProductController {
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+
+
+@ManagedBean
+@RequestScoped
+@Component(value = "newProductView")
+@Join(path = "/newProduct", to = "/view/product-form.jsf")
+public class NewProductView {
+
     @Autowired
     private ProductRepo productRepo;
 
