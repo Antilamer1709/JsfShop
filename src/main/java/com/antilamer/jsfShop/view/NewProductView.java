@@ -8,6 +8,8 @@ import org.springframework.stereotype.Component;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import java.io.IOException;
 
 
 @ManagedBean
@@ -21,10 +23,10 @@ public class NewProductView {
 
     private ProductEntity product = new ProductEntity();
 
-    public String save() {
+    public void save() throws IOException {
         productRepo.save(product);
         product = new ProductEntity();
-        return "/product-list.xhtml?faces-redirect=true";
+        FacesContext.getCurrentInstance().getExternalContext().redirect("/");
     }
 
     public ProductEntity getProduct() {
