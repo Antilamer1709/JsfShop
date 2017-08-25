@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<f:metadata>
+    <f:viewParam name="id" value="#{productView.id}" />
+</f:metadata>
+<ui:composition template="layout.xhtml">
+    <ui:define name="content">
+        <p:panel header="Product Details">
+            <h:panelGrid columns="2" style="width:100%" columnClasses="productImage,productDescription">
+
+                <p:graphicImage name="images/product#{productListView.productNumber}.jpg"/>
+
+                <p:outputPanel>
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <h:outputText value="Id:"/>
+                        <h:outputText value="#{productView.product.id}" style="font-weight: bold"/>
+
+                        <h:outputText value="Name:"/>
+                        <h:outputText value="#{productView.product.name}" style="font-weight: bold"/>
+
+                        <h:outputText value="Price:"/>
+                        <h:outputText value="#{productView.product.price}" style="font-weight: bold"/>
+                    </h:panelGrid>
+                </p:outputPanel>
+            </h:panelGrid>
+        </p:panel>
+    </ui:define>
+</ui:composition>
+</html>

@@ -17,9 +17,12 @@
                 <f:ajax>
                     <h:outputScript name="js/common.js" target="body"/>
 
-                    <h:panelGrid columns="2" style="width:100%" onclick="openProduct()"
-                                 columnClasses="productImage,productDescription">
-                        <p:graphicImage name="images/product#{productListView.productNumber}.jpg"/>
+                    <h:panelGrid columns="2" style="width:100%" columnClasses="productImage,productDescription">
+
+                        <h:link outcome="product" style="cursor: pointer;">
+                            <p:graphicImage name="images/product#{productListView.productNumber}.jpg"/>
+                            <f:param name="id" value="#{product.id}" />
+                        </h:link>
 
                         <p:outputPanel>
                             <h:panelGrid columns="2" cellpadding="5">
